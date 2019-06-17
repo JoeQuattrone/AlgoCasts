@@ -8,31 +8,42 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+// function anagrams(stringA, stringB) {
+//   const newA = stringA.replace(/[^\w]/g, "")
+//   const newB = stringB.replace(/[^\w]/g, "")
+//
+//   const mapA = {}
+//   const mapB = {}
+//
+//   for (let char of newA) {
+//    mapA[char] = mapA[char] + 1 || 1
+//   }
+//
+//   for (let char of newB) {
+//    mapB[char] = mapB[char] + 1 || 1
+//   }
+//
+//   if (Object.keys(mapA).length !== Object.keys(mapB).length) {
+//     return false
+//   }
+//
+//   for (let char in mapA) {
+//    if (mapA[char] !== mapB[char]) {
+//      return false
+//    }
+//  }
+//   return true
+// }
+
+
 function anagrams(stringA, stringB) {
   const newA = stringA.replace(/[^\w]/g, "")
   const newB = stringB.replace(/[^\w]/g, "")
 
-  const mapA = {}
-  const mapB = {}
-
-  for (let char of newA) {
-   mapA[char] = mapA[char] + 1 || 1
+  if (newA.split('').sort().join('') === newB.split('').sort().join('')) {
+    return true
   }
-
-  for (let char of newB) {
-   mapB[char] = mapB[char] + 1 || 1
-  }
-
-  if (Object.keys(mapA).length !== Object.keys(mapB).length) {
-    return false
-  }
-
-  for (let char in mapA) {
-   if (mapA[char] !== mapB[char]) {
-     return false
-   }
- }
-  return true
+  return false
 }
 
 
