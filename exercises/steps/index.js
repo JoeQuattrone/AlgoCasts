@@ -18,12 +18,17 @@
 //       '####'
 
 function steps(n) {
-  str = ''
-  for (let i = 0; i < n ; i++ ) {
+  let str = ''
+  const hash = '#'
+  for (let i = 0; i < n; i++) {
     str += ' '
+  }
+
+  for (let i = 0; i < n; i++) {
     str = hash + str.slice(0, -1)
     console.log(str)
   }
+
 }
 
 // make string of n length filled with empty spaces
