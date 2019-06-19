@@ -16,13 +16,25 @@
 //    return newArr.join(' ')
 // }
 
+// function capitalize(str) {
+//   const words = []
+//   for (let word of str.split(' ')) {
+//     words.push(word[0].toUpperCase() + word.slice(1))
+//   }
+//   return words.join(' ')
+// }
+
 function capitalize(str) {
-  const words = []
-  for (let word of str.split(' ')) {
-    words.push(word[0].toUpperCase() + word.slice(1))
+  let result = str[0].toUpperCase()
+  for (let char of str.slice(1)) {
+    if(result.slice(-1) === " ") {
+      result += char.toUpperCase()
+    } else {
+      result += char
+    }
   }
-  return words.join(' ')
+  return result
 }
-// capitalize('a short sentence')
+capitalize('a short sentence')
 
 module.exports = capitalize;
