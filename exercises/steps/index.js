@@ -17,22 +17,37 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-  let str = ''
-  const hash = '#'
-  for (let i = 0; i < n; i++) {
-    str += ' '
-  }
-
-  for (let i = 0; i < n; i++) {
-    str = hash + str.slice(0, -1)
-    console.log(str)
-  }
-
-}
+// function steps(n) {
+//   let str = ''
+//   const hash = '#'
+//   for (let i = 0; i < n; i++) {
+//     str += ' '
+//   }
+//
+//   for (let i = 0; i < n; i++) {
+//     str = hash + str.slice(0, -1)
+//     console.log(str)
+//   }
+// }
 
 // make string of n length filled with empty spaces
 // each iteration of loop prepend n and delete last character of string
 // console.log string on each iteration
+
+function steps(n) {
+  for (let row = 0; row < n; row++) {
+    let stair = ''
+
+    for (let column = 0; column < n; column++) {
+      if (column <= row) {
+        stair += '#'
+      } else {
+        stair += ' '
+      }
+    }
+
+    console.log(stair)
+  }
+}
 
 module.exports = steps;
