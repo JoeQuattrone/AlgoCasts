@@ -17,6 +17,23 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+  str = ''
+  for (let i = 0; i < n ; i++ ) {
+    str += ' '
+  }
+
+  let counter = 0
+  const hash = '#'
+  while (counter < n) {
+    str = hash + str.slice(0, -1)
+    counter++
+    console.log(str)
+  }
+}
+
+// make string of n length filled with empty spaces
+// each iteration of loop prepend n and delete last character of string
+// console.log string on each iteration
 
 module.exports = steps;
