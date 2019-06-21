@@ -18,6 +18,31 @@
 //       '  ###  '
 //       ' ##### '
 //       '#######'
+
+
+
+// recursion
+function pyramid(n, row = 0, level = '') {
+  if ( row === n) {
+    return
+  }
+  if (level.length === 2 * n -1 ) {
+    console.log(level)
+    return pyramid(n, row + 1)
+  }
+
+  const midpoint = Math.floor((2 * n - 1) / 2)
+  let add;
+  if (midpoint - row <= level.length && midpoint + row >= level.length) {
+    add = '#'
+  } else {
+    add = ' '
+  }
+  pyramid(n, row, level + add)
+}
+//  if n = row, return
+//  if n*2 -1 = stair.length
+
 // function pyramid(n) {
 //   const columns = n * 2 - 1
 //   let str = ''
@@ -33,23 +58,24 @@
 //   }
 // }
 
-function pyramid(n) {
-  const columns = n * 2 - 1
-  const midpoint = Math.floor(columns/2)
-
-  for (let i = 0; i < n; i++) {
-    let level = ''
-
-    for (let x = 0; x < columns; x++) {
-      if (midpoint - i <= x && midpoint + i >= x) {
-        level = level + '#'
-      } else {
-        level = level + ' '
-      }
-    }
-    console.log(level)
-  }
-}
+// function pyramid(n) {
+//   const columns = n * 2 - 1
+//   const midpoint = Math.floor(columns/2)
+//
+//   for (let i = 0; i < n; i++) {
+//     let level = ''
+//
+//     for (let x = 0; x < columns; x++) {
+//       if (midpoint - i <= x && midpoint + i >= x) {
+//         debugger
+//         level = level + '#'
+//       } else {
+//         level = level + ' '
+//       }
+//     }
+//     console.log(level)
+//   }
+// }
 // if row is less than column add i* 2 -1  hashes to the row
 // x is not going to the next row after adding hash
 // each row hash two more hashes than the previous row
@@ -57,17 +83,7 @@ function pyramid(n) {
 // hashes increase by two for each row
 // find columns given n colums = n * 2 - 1
 // iterate though string and insert a hash into the middle of the string each time
-// function steps(n) {
-//   let str = ''
-//   const hash = '#'
-//   for (let i = 0; i < n; i++) {
-//     str += ' '
-//   }
-//
-//   for (let i = 0; i < n; i++) {
-//     str = hash + str.slice(0, -1)
-//     console.log(str)
-//   }
-// }
+
+pyramid(4)
 
 module.exports = pyramid;
